@@ -35,7 +35,7 @@ document.getElementById('contact-form').addEventListener('submit', (e) => {
   const interest = form.interest.value;
   const message = form.message.value;
   const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nInterested in: ${interest}\n\nMessage:\n${message}`;
-  window.location.href = `mailto:firstnotemusiclab@gmail.com?subject=New inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
+  window.location.href = `mailto:hello@firstnotemusiclab.com?subject=New inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
   closeContactModal();
 });
 
