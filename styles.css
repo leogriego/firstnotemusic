@@ -607,6 +607,15 @@ ul { list-style: none; }
   letter-spacing: 0.05em;
 }
 
+.price-alt {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: -20px;
+  margin-bottom: 24px;
+}
+
 .pricing-card ul {
   margin-bottom: 32px;
 }
