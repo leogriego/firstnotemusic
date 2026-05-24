@@ -1,3 +1,44 @@
+// Contact modal
+const contactModal = document.getElementById('contact-modal');
+
+function openContactModal(e) {
+  e.preventDefault();
+  contactModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeContactModal() {
+  contactModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.open-contact-modal').forEach(btn => {
+  btn.addEventListener('click', openContactModal);
+});
+
+document.querySelector('.modal-close').addEventListener('click', closeContactModal);
+
+contactModal.addEventListener('click', (e) => {
+  if (e.target === contactModal) closeContactModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeContactModal();
+});
+
+document.getElementById('contact-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.name.value;
+  const email = form.email.value;
+  const phone = form.phone.value || 'Not provided';
+  const interest = form.interest.value;
+  const message = form.message.value;
+  const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nInterested in: ${interest}\n\nMessage:\n${message}`;
+  window.location.href = `mailto:firstnotemusiclab@gmail.com?subject=New inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
+  closeContactModal();
+});
+
 // FAQ accordion
 document.querySelectorAll('.faq-question').forEach(btn => {
   btn.addEventListener('click', () => {

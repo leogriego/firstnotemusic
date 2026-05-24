@@ -15,7 +15,6 @@
   <!-- Top bar -->
   <div class="top-bar">
     <span>Piano &amp; Music Production</span>
-    <span>Ages 8 to Adult &middot; All Levels</span>
   </div>
 
   <!-- Navigation -->
@@ -28,7 +27,7 @@
       <a href="#pricing">Pricing</a>
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact" class="nav-cta">Free Trial</a>
+      <a href="#" class="nav-cta open-contact-modal">Get Started</a>
     </div>
     <button class="nav-toggle" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -48,7 +47,7 @@
       </h1>
       <p class="hero-sub">Private one-on-one lessons in piano and music production using Ableton Live. Release your own music on streaming platforms.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Free Trial Lesson</a>
+        <a href="#" class="btn btn-primary open-contact-modal">Get Started</a>
         <a href="#program" class="btn btn-outline">See the Program</a>
       </div>
       <div class="hero-tags">
@@ -63,7 +62,7 @@
   <section class="streaming">
     <div class="streaming-inner">
       <div class="streaming-text">
-        <h2>Your child's music.<br>On real streaming platforms.</h2>
+        <h2>You or your child's music.<br>On real streaming platforms.</h2>
         <p>Track B students release 5 original songs per year — shareable links for everyone.</p>
       </div>
       <div class="streaming-logos">
@@ -168,27 +167,29 @@
     <div class="pricing-cards">
       <div class="pricing-card">
         <span class="track-label">Track A</span>
-        <h3>Piano Only</h3>
-        <div class="price">$60<span>/class</span></div>
+        <h3>Piano Foundations</h3>
+        <p class="track-desc">Build technique, repertoire, theory, and confidence.</p>
+        <div class="price">$80<span>/session</span></div>
         <ul>
-          <li>50-min private lesson, once per week</li>
+          <li>Private 1-on-1 lesson, once per week</li>
           <li>Piano technique &amp; repertoire</li>
           <li>Music theory &amp; ear training</li>
           <li>Classical &amp; contemporary songs</li>
         </ul>
-        <a href="#contact" class="btn btn-outline">Get Started</a>
+        <a href="#" class="btn btn-outline open-contact-modal">Get Started</a>
       </div>
       <div class="pricing-card featured">
         <span class="track-label">Track B</span>
-        <h3>Piano + Production + Release</h3>
-        <div class="price">$80<span>/class</span></div>
+        <h3>Artist Lab</h3>
+        <p class="track-desc">Learn piano, produce music in Ableton, and release original work.</p>
+        <div class="price">$120<span>/session</span></div>
         <ul>
-          <li>60-min private lesson, once per week</li>
+          <li>Private 1-on-1 lesson, once per week</li>
           <li>Ableton Live music production</li>
           <li>Write bass lines &amp; program drums</li>
           <li>Release original songs on all streaming platforms</li>
         </ul>
-        <a href="#contact" class="btn btn-primary">Get Started</a>
+        <a href="#" class="btn btn-primary open-contact-modal">Get Started</a>
         <div class="featured-badge">Most Popular</div>
       </div>
     </div>
@@ -312,6 +313,43 @@
       </div>
     </div>
   </footer>
+
+  <!-- Contact Modal -->
+  <div class="modal-overlay" id="contact-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <h2 id="modal-title">Let's get started.</h2>
+      <p class="modal-sub">Tell us a bit about yourself — we'll be in touch soon.</p>
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="cf-phone">Phone <span class="optional">(optional)</span></label>
+          <input type="tel" id="cf-phone" name="phone" placeholder="(310) 000-0000">
+        </div>
+        <div class="form-group">
+          <label for="cf-interest">What are you interested in?</label>
+          <select id="cf-interest" name="interest" required>
+            <option value="" disabled selected>Choose a track...</option>
+            <option value="Track A — Piano Foundations">Track A — Piano Foundations</option>
+            <option value="Track B — Artist Lab">Track B — Artist Lab</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Message / Goals</label>
+          <textarea id="cf-message" name="message" rows="4" placeholder="Tell us about your goals or anything else we should know..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
