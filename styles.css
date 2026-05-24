@@ -1,3 +1,12 @@
+/* ===== Druk Wide Bold ===== */
+@font-face {
+  font-family: 'Druk Wide Bold';
+  src: url('assets/DrukWideBold.woff2.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== Reset & Variables ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -15,7 +24,7 @@
   --border: #d8d7d2;
   --radius: 8px;
   --radius-lg: 16px;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Druk Wide Bold', 'Barlow', Impact, 'Arial Black', sans-serif;
   --font-mono: 'Space Mono', 'Courier New', monospace;
   --font-body: 'Inter', -apple-system, sans-serif;
   --max-width: 1200px;
@@ -57,6 +66,13 @@ body::after {
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
 
 
 /* ===== Top Bar ===== */
@@ -233,13 +249,15 @@ ul { list-style: none; }
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 4vw, 3.6rem);
-  line-height: 1.15;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   margin-bottom: 24px;
+  text-transform: uppercase;
 }
 
 .hero h1 em {
   color: var(--green-bright);
-  font-style: italic;
+  font-style: normal;
 }
 
 .hero-spotify {
