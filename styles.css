@@ -351,6 +351,17 @@ ul { list-style: none; }
   letter-spacing: 0.05em;
 }
 
+.platform-badge--apple {
+  padding: 10px 16px;
+}
+
+.apple-music-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+  border-radius: 4px;
+}
+
 /* ===== Student Showcase ===== */
 .showcase {
   padding: 120px 32px;
