@@ -1,8 +1,7 @@
 /* ===== Druk Wide Bold ===== */
 @font-face {
   font-family: 'Druk Wide Bold';
-  src: url('assets/DrukWideBold.woff2') format('woff2'),
-       url('assets/DrukWideBold.woff') format('woff');
+  src: url('assets/DrukWideBold.woff2.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
