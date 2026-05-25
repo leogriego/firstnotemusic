@@ -335,6 +335,38 @@ h1, h2, h3, h4 {
   margin-top: 4px;
 }
 
+.stat-callout {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 10vw, 120px);
+  line-height: 1;
+  color: var(--gold);
+  letter-spacing: -0.04em;
+  flex-shrink: 0;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.9;
+}
+
+.stat-sub {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
 .streaming-logos {
   display: flex;
   gap: 24px;
@@ -676,6 +708,14 @@ h1, h2, h3, h4 {
 .pricing-header h2 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.pricing-intro {
+  max-width: 620px;
+  margin: 16px auto 0;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.6;
 }
 
 .pricing-cards {
