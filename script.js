@@ -26,17 +26,50 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeContactModal();
 });
 
-document.getElementById('contact-form').addEventListener('submit', (e) => {
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;
-  const name = form.name.value;
-  const email = form.email.value;
-  const phone = form.phone.value || 'Not provided';
-  const interest = form.interest.value;
-  const message = form.message.value;
-  const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nInterested in: ${interest}\n\nMessage:\n${message}`;
-  window.location.href = `mailto:hello@firstnotemusiclab.com?subject=New inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
-  closeContactModal();
+  const submitBtn = document.getElementById('cf-submit');
+  const status = document.getElementById('cf-status');
+
+  status.className = 'form-status';
+  status.textContent = '';
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  try {
+    const formData = new FormData(form);
+    formData.append('_subject', `New inquiry from ${form.name.value}`);
+
+    const response = await fetch('https://formspree.io/f/mqejylbl', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      status.className = 'form-status success';
+      status.textContent = "Got it! I'll be in touch within 1-2 days. 🎧";
+      form.reset();
+      submitBtn.textContent = 'Sent ✓';
+      setTimeout(() => {
+        closeContactModal();
+        setTimeout(() => {
+          submitBtn.textContent = 'Send Message';
+          submitBtn.disabled = false;
+          status.className = 'form-status';
+          status.textContent = '';
+        }, 500);
+      }, 3000);
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (error) {
+    status.className = 'form-status error';
+    status.innerHTML = 'Something went wrong. Please try again or email <a href="mailto:hello@firstnotemusiclab.com">hello@firstnotemusiclab.com</a> directly.';
+    submitBtn.textContent = 'Send Message';
+    submitBtn.disabled = false;
+  }
 });
 
 // FAQ accordion

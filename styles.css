@@ -911,6 +911,34 @@ h1, h2, h3, h4 {
   margin-top: 8px;
 }
 
+.form-status {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  text-align: center;
+  display: none;
+}
+
+.form-status.success {
+  display: block;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+}
+
+.form-status.error {
+  display: block;
+  background: #ffebee;
+  color: #b71c1c;
+  border: 1px solid #ef9a9a;
+}
+
+#cf-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* ===== CTA ===== */
 .cta {
   padding: 120px 32px;
