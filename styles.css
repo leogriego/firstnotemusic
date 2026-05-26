@@ -724,6 +724,7 @@ h1, h2, h3, h4 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
+  align-items: stretch;
 }
 
 .pricing-card {
@@ -733,6 +734,8 @@ h1, h2, h3, h4 {
   padding: 48px 40px;
   position: relative;
   transition: border-color 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .pricing-card:hover {
@@ -802,6 +805,7 @@ h1, h2, h3, h4 {
 }
 
 .pricing-card ul {
+  flex: 1;
   margin-bottom: 32px;
 }
 
@@ -823,6 +827,10 @@ h1, h2, h3, h4 {
 .pricing-card .btn {
   width: 100%;
   justify-content: center;
+  margin-top: auto;
+  padding: 16px 32px;
+  font-size: 0.8rem;
+  border-width: 2px;
 }
 
 /* ===== Details Bar ===== */
