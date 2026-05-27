@@ -85,13 +85,23 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 // Mobile nav toggle
 document.querySelector('.nav-toggle')?.addEventListener('click', () => {
   document.querySelector('.nav-links').classList.toggle('open');
+  document.querySelector('.nav-toggle').classList.toggle('open');
 });
 
 // Close mobile nav on link click
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
     document.querySelector('.nav-links').classList.remove('open');
+    document.querySelector('.nav-toggle').classList.remove('open');
   });
+});
+
+// Close mobile nav on outside click
+document.addEventListener('click', (e) => {
+  if (!document.querySelector('.nav').contains(e.target)) {
+    document.querySelector('.nav-links').classList.remove('open');
+    document.querySelector('.nav-toggle').classList.remove('open');
+  }
 });
 
 // Scroll fade-in animations
