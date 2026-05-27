@@ -566,6 +566,24 @@ h1, h2, h3, h4 {
   color: var(--text);
 }
 
+/* ===== Red Band ===== */
+.red-band {
+  background: var(--gold);
+  padding: 52px 32px;
+  text-align: center;
+}
+
+.red-band p {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  color: var(--cloud);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
 /* ===== Portfolio ===== */
 .portfolio-section {
   padding: 120px 32px;
