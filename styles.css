@@ -28,6 +28,9 @@
   --font-mono: 'Space Mono', 'Courier New', monospace;
   --font-body: 'Inter', -apple-system, sans-serif;
   --max-width: 1200px;
+  --sand: #D6D1B3;
+  --olive: #2C3520;
+  --cloud: #F7F2E8;
 }
 
 html {
@@ -683,7 +686,7 @@ h1, h2, h3, h4 {
 /* ===== Pricing ===== */
 .pricing {
   padding: 120px 32px;
-  background: var(--bg-alt);
+  background: var(--sand);
 }
 
 .pricing-header {
