@@ -1140,8 +1140,7 @@ h1, h2, h3, h4 {
 
 /* ===== Footer ===== */
 .footer {
-  background: var(--bg-alt);
-  border-top: 1px solid var(--border);
+  background: var(--olive);
   padding: 32px;
 }
 
@@ -1164,16 +1163,20 @@ h1, h2, h3, h4 {
 .footer-logo {
   height: 90px;
   width: auto;
+  background: var(--cloud);
+  padding: 8px;
+  border-radius: var(--radius);
 }
 
 .footer-brand strong {
   display: block;
   font-size: 0.9rem;
+  color: var(--cloud);
 }
 
 .footer-brand span {
   font-size: 0.75rem;
-  color: var(--text-dim);
+  color: rgba(247, 242, 232, 0.55);
 }
 
 .footer-contact {
@@ -1191,17 +1194,17 @@ h1, h2, h3, h4 {
 }
 
 .footer-contact span {
-  color: var(--text-muted);
+  color: rgba(247, 242, 232, 0.5);
   font-size: 0.7rem;
 }
 
 .footer-contact a {
-  color: var(--text-dim);
+  color: var(--gold);
   transition: color 0.2s;
 }
 
 .footer-contact a:hover {
-  color: var(--gold);
+  color: #ff7a68;
 }
 
 /* ===== Scroll Animations ===== */
