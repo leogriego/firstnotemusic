@@ -84,7 +84,7 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
-  height: 70px;
+  height: 84px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -92,15 +92,15 @@ h1, h2, h3, h4 {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .nav-logo {
-  align-self: flex-start;
+  align-self: center;
 }
 
 .nav-logo img {
-  height: 130px;
+  height: 56px;
   width: auto;
 }
 
@@ -1250,7 +1250,7 @@ h1, h2, h3, h4 {
 @media (max-width: 768px) {
   .nav {
     padding: 8px 16px;
-    height: auto;
+    height: 64px;
   }
 
   .nav-logo {
@@ -1258,7 +1258,7 @@ h1, h2, h3, h4 {
   }
 
   .nav-logo img {
-    height: 50px;
+    height: 44px;
   }
 
   .nav-links {
