@@ -1292,6 +1292,9 @@ h1, h2, h3, h4 {
 
   .nav-links.open {
     display: flex;
+    background-color: #DCDDD0;
+    padding: 16px;
+    z-index: 100;
   }
 
   .nav-toggle {
