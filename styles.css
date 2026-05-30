@@ -1259,7 +1259,8 @@ h1, h2, h3, h4 {
   }
 
   .nav-logo img {
-    height: 55px;
+    height: 65px;
+    width: auto;
   }
 
   .nav-links {
