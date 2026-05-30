@@ -94,7 +94,7 @@ h1, h2, h3, h4 {
 }
 
 .nav-logo img {
-  height: 120px;
+  height: 150px;
   width: auto;
 }
 
@@ -1185,11 +1185,9 @@ h1, h2, h3, h4 {
 }
 
 .footer-logo {
-  height: 90px;
+  height: 145px;
   width: auto;
-  background: var(--cloud);
-  padding: 8px;
-  border-radius: var(--radius);
+  filter: brightness(0) invert(1);
 }
 
 .footer-brand strong {
@@ -1261,7 +1259,7 @@ h1, h2, h3, h4 {
   }
 
   .nav-logo img {
-    height: 44px;
+    height: 55px;
   }
 
   .nav-links {
