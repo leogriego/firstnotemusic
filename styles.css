@@ -1361,17 +1361,21 @@ h1, h2, h3, h4 {
   }
 
   .pricing-header h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     white-space: normal;
     overflow-wrap: break-word;
     width: 100%;
+    text-align: center;
+    padding: 0 16px;
   }
 
   .portfolio-inner h2 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     white-space: normal;
     overflow-wrap: break-word;
+    word-break: break-word;
     width: 100%;
+    padding: 0 16px;
   }
 
   .streaming h2 {
