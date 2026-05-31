@@ -1355,6 +1355,13 @@ h1, h2, h3, h4 {
     padding: 28px 24px;
   }
 
+  .portfolio-inner h2 {
+    font-size: 1.4rem;
+    white-space: normal;
+    overflow-wrap: break-word;
+    width: 100%;
+  }
+
   .streaming h2 {
     font-size: 1.6rem;
   }
