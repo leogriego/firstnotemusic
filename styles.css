@@ -1340,7 +1340,8 @@ h1, h2, h3, h4 {
   }
 
   .streaming h2 {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
+    line-height: 1.2;
     white-space: nowrap;
   }
 
@@ -1357,12 +1358,12 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: row;
     gap: 12px;
-    align-items: center;
+    align-items: stretch;
   }
 
   .hero-actions .btn {
-    width: auto;
-    padding: 14px 24px;
+    flex: 1;
+    padding: 0 20px;
     height: 56px;
     line-height: 1;
     display: flex;
