@@ -1343,9 +1343,10 @@ h1, h2, h3, h4 {
   }
 
   .streaming h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     white-space: normal;
-    word-break: keep-all;
+    overflow: visible;
+    width: 100%;
     text-align: center;
   }
 
