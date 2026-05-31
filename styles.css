@@ -256,9 +256,15 @@ h1, h2, h3, h4 {
 
 .hero-actions {
   display: flex;
-  gap: 16px;
+  flex-direction: row;
+  gap: 12px;
   margin-bottom: 40px;
-  flex-wrap: wrap;
+}
+
+.hero-actions .btn {
+  flex: 1;
+  text-align: center;
+  justify-content: center;
 }
 
 .hero-tags {
@@ -1334,7 +1340,7 @@ h1, h2, h3, h4 {
   }
 
   .streaming h2 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .hero {
