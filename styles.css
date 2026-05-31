@@ -1334,15 +1334,19 @@ h1, h2, h3, h4 {
   .pricing-header h2,
   .about h2,
   .faq-inner h2,
-  .cta h2,
-  .streaming {
+  .cta h2 {
     padding: 28px 24px;
+  }
+
+  .streaming {
+    padding: 40px 24px;
   }
 
   .streaming h2 {
     font-size: 1.3rem;
-    line-height: 1.2;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: keep-all;
+    text-align: center;
   }
 
   .hero {
