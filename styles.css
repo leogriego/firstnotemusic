@@ -1339,15 +1339,17 @@ h1, h2, h3, h4 {
   }
 
   .streaming {
-    padding: 40px 24px;
+    overflow: hidden;
+    padding: 40px 20px;
   }
 
   .streaming h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     white-space: normal;
-    overflow: visible;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     width: 100%;
-    text-align: center;
+    box-sizing: border-box;
   }
 
   .hero {
