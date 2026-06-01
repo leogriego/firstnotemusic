@@ -1258,6 +1258,95 @@ h1, h2, h3, h4 {
   color: #ff7a68;
 }
 
+/* ===== Student Releases Carousel ===== */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.carousel-viewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+}
+
+.release-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.release-artist {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.release-song {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.release-story {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.release-embed {
+  border: 0;
+  border-radius: 12px;
+  display: block;
+  width: 100%;
+}
+
+.carousel-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.carousel-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+}
+
 /* ===== Scroll Animations ===== */
 .fade-in {
   opacity: 0;
@@ -1458,6 +1547,18 @@ h1, h2, h3, h4 {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+
+  .release-card {
+    padding: 24px;
+  }
+
+  .release-artist {
+    font-size: 1.5rem;
   }
 
   .program, .pricing, .about, .showcase, .faq, .cta, .portfolio-section {

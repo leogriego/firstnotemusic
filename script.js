@@ -106,7 +106,7 @@ document.addEventListener('click', (e) => {
 
 // Scroll fade-in animations
 const faders = document.querySelectorAll(
-  '.showcase-inner, .program-header, .timeline-item, .program-result, ' +
+  '.release-card, .program-header, .timeline-item, .program-result, ' +
   '.about-photo, .about-text, .pricing-header, .pricing-card, ' +
   '.detail-item, .faq-inner, .cta-inner'
 );
@@ -122,6 +122,37 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
 faders.forEach(el => observer.observe(el));
+
+// Student releases carousel
+const carouselTrack = document.getElementById('carousel-track');
+if (carouselTrack) {
+  const slides = carouselTrack.querySelectorAll('.carousel-slide');
+  const prevBtn = document.querySelector('.carousel-btn--prev');
+  const nextBtn = document.querySelector('.carousel-btn--next');
+  let current = 0;
+
+  function updateCarousel() {
+    carouselTrack.style.transform = `translateX(-${current * 100}%)`;
+    if (prevBtn) prevBtn.disabled = current === 0;
+    if (nextBtn) nextBtn.disabled = current === slides.length - 1;
+  }
+
+  prevBtn?.addEventListener('click', () => { if (current > 0) { current--; updateCarousel(); } });
+  nextBtn?.addEventListener('click', () => { if (current < slides.length - 1) { current++; updateCarousel(); } });
+
+  const viewport = carouselTrack.closest('.carousel-viewport');
+  let touchStartX = 0;
+  viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  viewport.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && current < slides.length - 1) { current++; updateCarousel(); }
+      if (diff < 0 && current > 0) { current--; updateCarousel(); }
+    }
+  }, { passive: true });
+
+  updateCarousel();
+}
 
 // Nav background on scroll
 const nav = document.querySelector('.nav');
