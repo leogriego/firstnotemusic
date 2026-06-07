@@ -123,13 +123,16 @@ const observer = new IntersectionObserver((entries) => {
 
 faders.forEach(el => observer.observe(el));
 
-// Student releases carousel
-const carouselTrack = document.getElementById('carousel-track');
-if (carouselTrack) {
-  const slides = carouselTrack.querySelectorAll('.carousel-slide');
-  const prevBtn = document.querySelector('.carousel-btn--prev');
-  const nextBtn = document.querySelector('.carousel-btn--next');
-  const dotsContainer = document.querySelector('.carousel-dots');
+// Carousel initialization — handles all .carousel-wrapper instances
+function initCarousel(wrapper) {
+  const track = wrapper.querySelector('.carousel-track');
+  if (!track) return;
+  const slides = track.querySelectorAll('.carousel-slide');
+  if (!slides.length) return;
+  const prevBtn = wrapper.querySelector('.carousel-btn--prev');
+  const nextBtn = wrapper.querySelector('.carousel-btn--next');
+  const nextSibling = wrapper.nextElementSibling;
+  const dotsContainer = nextSibling?.classList.contains('carousel-dots') ? nextSibling : null;
   let current = 0;
 
   function stopCardMedia(index) {
@@ -139,7 +142,6 @@ if (carouselTrack) {
     slide.querySelectorAll('.release-embed').forEach(iframe => { const s = iframe.src; iframe.src = ''; iframe.src = s; });
   }
 
-  // Build dot indicators
   const dots = Array.from(slides).map((_, i) => {
     const dot = document.createElement('span');
     dot.className = 'carousel-dot' + (i === 0 ? ' carousel-dot--active' : '');
@@ -149,7 +151,7 @@ if (carouselTrack) {
   });
 
   function updateCarousel() {
-    carouselTrack.style.transform = `translateX(-${current * 100}%)`;
+    track.style.transform = `translateX(-${current * 100}%)`;
     if (prevBtn) prevBtn.disabled = current === 0;
     if (nextBtn) nextBtn.disabled = current === slides.length - 1;
     dots.forEach((dot, i) => dot.classList.toggle('carousel-dot--active', i === current));
@@ -158,7 +160,7 @@ if (carouselTrack) {
   prevBtn?.addEventListener('click', () => { if (current > 0) { stopCardMedia(current); current--; updateCarousel(); } });
   nextBtn?.addEventListener('click', () => { if (current < slides.length - 1) { stopCardMedia(current); current++; updateCarousel(); } });
 
-  const viewport = carouselTrack.closest('.carousel-viewport');
+  const viewport = track.closest('.carousel-viewport');
   let touchStartX = 0;
   viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
   viewport.addEventListener('touchend', e => {
@@ -171,6 +173,8 @@ if (carouselTrack) {
 
   updateCarousel();
 }
+
+document.querySelectorAll('.carousel-wrapper').forEach(initCarousel);
 
 // Demo/Final toggles on release cards
 document.querySelectorAll('.release-toggle').forEach(toggle => {
