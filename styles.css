@@ -1332,6 +1332,14 @@ h1, h2, h3, h4 {
   width: 100%;
 }
 
+.release-cover {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
+
 .release-toggle {
   display: inline-flex;
   border: 1px solid var(--border);
