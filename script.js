@@ -129,12 +129,23 @@ if (carouselTrack) {
   const slides = carouselTrack.querySelectorAll('.carousel-slide');
   const prevBtn = document.querySelector('.carousel-btn--prev');
   const nextBtn = document.querySelector('.carousel-btn--next');
+  const dotsContainer = document.querySelector('.carousel-dots');
   let current = 0;
+
+  // Build dot indicators
+  const dots = Array.from(slides).map((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'carousel-dot' + (i === 0 ? ' carousel-dot--active' : '');
+    dot.addEventListener('click', () => { current = i; updateCarousel(); });
+    dotsContainer?.appendChild(dot);
+    return dot;
+  });
 
   function updateCarousel() {
     carouselTrack.style.transform = `translateX(-${current * 100}%)`;
     if (prevBtn) prevBtn.disabled = current === 0;
     if (nextBtn) nextBtn.disabled = current === slides.length - 1;
+    dots.forEach((dot, i) => dot.classList.toggle('carousel-dot--active', i === current));
   }
 
   prevBtn?.addEventListener('click', () => { if (current > 0) { current--; updateCarousel(); } });
