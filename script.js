@@ -159,9 +159,18 @@ document.querySelectorAll('.release-toggle').forEach(toggle => {
   toggle.querySelectorAll('.release-toggle-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const card = toggle.closest('.release-card');
+      const target = btn.dataset.panel;
+
+      if (target === 'demo') {
+        const iframe = card.querySelector('.release-embed');
+        if (iframe) { const s = iframe.src; iframe.src = ''; iframe.src = s; }
+      } else {
+        const audio = card.querySelector('.release-audio');
+        if (audio) { audio.pause(); audio.currentTime = 0; }
+      }
+
       toggle.querySelectorAll('.release-toggle-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const target = btn.dataset.panel;
       card.querySelectorAll('.release-panel').forEach(panel => {
         panel.hidden = panel.dataset.panel !== target;
       });
