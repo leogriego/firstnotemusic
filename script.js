@@ -132,11 +132,18 @@ if (carouselTrack) {
   const dotsContainer = document.querySelector('.carousel-dots');
   let current = 0;
 
+  function stopCardMedia(index) {
+    const slide = slides[index];
+    if (!slide) return;
+    slide.querySelectorAll('.release-audio').forEach(audio => { audio.pause(); audio.currentTime = 0; });
+    slide.querySelectorAll('.release-embed').forEach(iframe => { const s = iframe.src; iframe.src = ''; iframe.src = s; });
+  }
+
   // Build dot indicators
   const dots = Array.from(slides).map((_, i) => {
     const dot = document.createElement('span');
     dot.className = 'carousel-dot' + (i === 0 ? ' carousel-dot--active' : '');
-    dot.addEventListener('click', () => { current = i; updateCarousel(); });
+    dot.addEventListener('click', () => { stopCardMedia(current); current = i; updateCarousel(); });
     dotsContainer?.appendChild(dot);
     return dot;
   });
@@ -148,8 +155,8 @@ if (carouselTrack) {
     dots.forEach((dot, i) => dot.classList.toggle('carousel-dot--active', i === current));
   }
 
-  prevBtn?.addEventListener('click', () => { if (current > 0) { current--; updateCarousel(); } });
-  nextBtn?.addEventListener('click', () => { if (current < slides.length - 1) { current++; updateCarousel(); } });
+  prevBtn?.addEventListener('click', () => { if (current > 0) { stopCardMedia(current); current--; updateCarousel(); } });
+  nextBtn?.addEventListener('click', () => { if (current < slides.length - 1) { stopCardMedia(current); current++; updateCarousel(); } });
 
   const viewport = carouselTrack.closest('.carousel-viewport');
   let touchStartX = 0;
@@ -157,8 +164,8 @@ if (carouselTrack) {
   viewport.addEventListener('touchend', e => {
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) {
-      if (diff > 0 && current < slides.length - 1) { current++; updateCarousel(); }
-      if (diff < 0 && current > 0) { current--; updateCarousel(); }
+      if (diff > 0 && current < slides.length - 1) { stopCardMedia(current); current++; updateCarousel(); }
+      if (diff < 0 && current > 0) { stopCardMedia(current); current--; updateCarousel(); }
     }
   }, { passive: true });
 

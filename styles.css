@@ -1342,13 +1342,15 @@ h1, h2, h3, h4 {
 }
 
 .release-toggle {
-  display: inline-flex;
+  display: flex;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
+  align-self: flex-start;
 }
 
 .release-toggle-btn {
+  flex: 1;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 700;
@@ -1359,6 +1361,7 @@ h1, h2, h3, h4 {
   color: var(--text-dim);
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  text-align: center;
 }
 
 .release-toggle-btn.active {
