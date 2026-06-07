@@ -154,6 +154,21 @@ if (carouselTrack) {
   updateCarousel();
 }
 
+// Demo/Final toggles on release cards
+document.querySelectorAll('.release-toggle').forEach(toggle => {
+  toggle.querySelectorAll('.release-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = toggle.closest('.release-card');
+      toggle.querySelectorAll('.release-toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.dataset.panel;
+      card.querySelectorAll('.release-panel').forEach(panel => {
+        panel.hidden = panel.dataset.panel !== target;
+      });
+    });
+  });
+});
+
 // Nav background on scroll
 const nav = document.querySelector('.nav');
 let lastScroll = 0;

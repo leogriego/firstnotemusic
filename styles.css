@@ -1332,6 +1332,37 @@ h1, h2, h3, h4 {
   width: 100%;
 }
 
+.release-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.release-toggle-btn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 6px 18px;
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.release-toggle-btn.active {
+  background: var(--gold);
+  color: #141414;
+}
+
+.release-audio {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+}
+
 .carousel-btn {
   flex-shrink: 0;
   width: 44px;
