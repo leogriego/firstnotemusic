@@ -31,6 +31,7 @@
   --sand: #D6D1B3;
   --olive: #2C3520;
   --cloud: #F7F2E8;
+  --accent: #EA5440;
 }
 
 html {
@@ -1427,6 +1428,13 @@ h1, h2, h3, h4 {
   display: none;
 }
 
+.testimonials .carousel-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
 .carousel-dot {
   width: 8px;
   height: 8px;
@@ -1434,11 +1442,16 @@ h1, h2, h3, h4 {
   background: var(--border);
   transition: background 0.2s, transform 0.2s;
   display: inline-block;
+  cursor: pointer;
 }
 
 .carousel-dot--active {
   background: var(--gold);
   transform: scale(1.25);
+}
+
+.testimonials .carousel-dot--active {
+  background: var(--accent);
 }
 
 .carousel-btn:disabled {
