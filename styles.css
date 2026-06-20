@@ -1428,7 +1428,8 @@ h1, h2, h3, h4 {
   display: none;
 }
 
-.testimonials .carousel-dots {
+.testimonials .carousel-dots,
+.portfolio-section .carousel-dots {
   display: flex;
   gap: 8px;
   justify-content: center;
@@ -1450,7 +1451,8 @@ h1, h2, h3, h4 {
   transform: scale(1.25);
 }
 
-.testimonials .carousel-dot--active {
+.testimonials .carousel-dot--active,
+.portfolio-section .carousel-dot--active {
   background: var(--accent);
 }
 
