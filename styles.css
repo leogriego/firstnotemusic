@@ -737,7 +737,7 @@ h1, h2, h3, h4 {
 /* ===== Pricing ===== */
 .pricing {
   padding: 120px 32px;
-  background: var(--bg);
+  background: var(--bg-alt);
 }
 
 .pricing-header {
