@@ -183,12 +183,10 @@ document.querySelectorAll('.release-toggle').forEach(toggle => {
       const card = toggle.closest('.release-card');
       const target = btn.dataset.panel;
 
-      if (target === 'demo') {
-        const iframe = card.querySelector('.release-embed');
-        if (iframe) { const s = iframe.src; iframe.src = ''; iframe.src = s; }
-      } else {
-        const audio = card.querySelector('.release-audio');
-        if (audio) { audio.pause(); audio.currentTime = 0; }
+      const leavingPanel = card.querySelector(`.release-panel[data-panel="${target === 'demo' ? 'final' : 'demo'}"]`);
+      if (leavingPanel) {
+        leavingPanel.querySelectorAll('.release-audio').forEach(a => { a.pause(); a.currentTime = 0; });
+        leavingPanel.querySelectorAll('.release-embed').forEach(iframe => { const s = iframe.src; iframe.src = ''; iframe.src = s; });
       }
 
       toggle.querySelectorAll('.release-toggle-btn').forEach(b => b.classList.remove('active'));
