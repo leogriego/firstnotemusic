@@ -162,8 +162,13 @@ function initCarousel(wrapper) {
 
   const viewport = track.closest('.carousel-viewport');
   let touchStartX = 0;
-  viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  let swipeBlocked = false;
+  viewport.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    swipeBlocked = e.target.closest('audio') !== null;
+  }, { passive: true });
   viewport.addEventListener('touchend', e => {
+    if (swipeBlocked) { swipeBlocked = false; return; }
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) {
       if (diff > 0 && current < slides.length - 1) { stopCardMedia(current); current++; updateCarousel(); }
