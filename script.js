@@ -104,17 +104,6 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Spotify IFrame API — controllers keyed by embed element
-const spotifyControllers = new WeakMap();
-
-window.onSpotifyIframeApiReady = (IFrameAPI) => {
-  document.querySelectorAll('.release-embed[data-spotify-uri]').forEach(el => {
-    IFrameAPI.createController(el, { uri: el.dataset.spotifyUri }, controller => {
-      spotifyControllers.set(el, controller);
-    });
-  });
-};
-
 // Scroll fade-in animations
 const faders = document.querySelectorAll(
   '.release-card, .program-header, .timeline-item, .program-result, ' +
@@ -150,8 +139,7 @@ function initCarousel(wrapper) {
     const slide = slides[index];
     if (!slide) return;
     slide.querySelectorAll('.release-audio').forEach(audio => { audio.pause(); audio.currentTime = 0; });
-    slide.querySelectorAll('.release-embed[data-spotify-uri]').forEach(el => { spotifyControllers.get(el)?.pause(); });
-    slide.querySelectorAll('.release-embed:not([data-spotify-uri])').forEach(iframe => { const s = iframe.src; iframe.src = ''; iframe.src = s; });
+    slide.querySelectorAll('.release-embed').forEach(iframe => { const s = iframe.src; iframe.src = ''; iframe.src = s; });
   }
 
   const dots = Array.from(slides).map((_, i) => {
@@ -203,8 +191,7 @@ document.querySelectorAll('.release-toggle').forEach(toggle => {
       const leavingPanel = card.querySelector(`.release-panel[data-panel="${target === 'demo' ? 'final' : 'demo'}"]`);
       if (leavingPanel) {
         leavingPanel.querySelectorAll('.release-audio').forEach(a => { a.pause(); a.currentTime = 0; });
-        leavingPanel.querySelectorAll('.release-embed[data-spotify-uri]').forEach(el => { spotifyControllers.get(el)?.pause(); });
-        leavingPanel.querySelectorAll('.release-embed:not([data-spotify-uri])').forEach(iframe => { const s = iframe.src; iframe.src = ''; iframe.src = s; });
+        leavingPanel.querySelectorAll('.release-embed').forEach(iframe => { const s = iframe.src; iframe.src = ''; iframe.src = s; });
       }
 
       toggle.querySelectorAll('.release-toggle-btn').forEach(b => b.classList.remove('active'));
