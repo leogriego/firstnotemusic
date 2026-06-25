@@ -192,7 +192,7 @@ document.querySelectorAll('.release-toggle').forEach(toggle => {
       if (leavingPanel) {
         leavingPanel.querySelectorAll('.release-audio').forEach(a => { a.pause(); a.currentTime = 0; });
         leavingPanel.querySelectorAll('.release-embed').forEach(iframe => {
-          iframe.contentWindow.postMessage('{"method":"pause"}', '*');
+          const src = iframe.src; iframe.src = ''; iframe.src = src;
         });
       }
 
