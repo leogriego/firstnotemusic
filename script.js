@@ -191,14 +191,17 @@ document.querySelectorAll('.release-toggle').forEach(toggle => {
       const leavingPanel = card.querySelector(`.release-panel[data-panel="${target === 'demo' ? 'final' : 'demo'}"]`);
       if (leavingPanel) {
         leavingPanel.querySelectorAll('.release-audio').forEach(a => { a.pause(); a.currentTime = 0; });
-        leavingPanel.querySelectorAll('.release-embed').forEach(iframe => { const s = iframe.src; iframe.src = ''; iframe.src = s; });
+        leavingPanel.querySelectorAll('.release-embed').forEach(iframe => {
+          iframe.contentWindow.postMessage('{"method":"pause"}', '*');
+        });
       }
 
       toggle.querySelectorAll('.release-toggle-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       card.querySelectorAll('.release-panel').forEach(panel => {
-        panel.hidden = panel.dataset.panel !== target;
+        panel.classList.remove('panel-active');
       });
+      card.querySelector(`.release-panel[data-panel="${target}"]`).classList.add('panel-active');
     });
   });
 });

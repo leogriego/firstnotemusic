@@ -1400,6 +1400,14 @@ h1, h2, h3, h4 {
   color: #141414;
 }
 
+.release-panel {
+  display: none;
+}
+
+.release-panel.panel-active {
+  display: block;
+}
+
 .release-audio {
   display: block;
   width: 100%;
