@@ -1364,6 +1364,10 @@ h1, h2, h3, h4 {
   width: 100%;
 }
 
+.release-embed[data-spotify-uri] {
+  min-height: 152px;
+}
+
 .release-cover {
   width: 160px;
   height: 160px;
