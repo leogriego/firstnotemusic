@@ -187,19 +187,23 @@ document.querySelectorAll('.release-toggle').forEach(toggle => {
     btn.addEventListener('click', () => {
       const card = toggle.closest('.release-card');
       const target = btn.dataset.panel;
-
-      const leavingPanel = card.querySelector(`.release-panel[data-panel="${target === 'demo' ? 'final' : 'demo'}"]`);
-      if (leavingPanel) {
-        leavingPanel.querySelectorAll('.release-audio').forEach(a => { a.pause(); a.currentTime = 0; });
-        leavingPanel.querySelectorAll('.release-embed').forEach(iframe => { const s = iframe.src; iframe.src = ''; iframe.src = s; });
-      }
+      const spotifyPanel = card.querySelector('.release-panel[data-panel="final"]');
+      const audioPanel = card.querySelector('.release-panel[data-panel="demo"]');
 
       toggle.querySelectorAll('.release-toggle-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      card.querySelectorAll('.release-panel').forEach(panel => {
-        panel.classList.remove('panel-active');
-      });
-      card.querySelector(`.release-panel[data-panel="${target}"]`).classList.add('panel-active');
+
+      if (target === 'demo') {
+        audioPanel.classList.add('panel-visible');
+        spotifyPanel.classList.remove('panel-visible');
+        const iframe = spotifyPanel.querySelector('iframe');
+        if (iframe) iframe.src = iframe.src;
+      } else {
+        spotifyPanel.classList.add('panel-visible');
+        audioPanel.classList.remove('panel-visible');
+        const audio = audioPanel.querySelector('audio');
+        if (audio) { audio.pause(); audio.currentTime = 0; }
+      }
     });
   });
 });

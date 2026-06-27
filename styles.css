@@ -1400,18 +1400,24 @@ h1, h2, h3, h4 {
   color: #141414;
 }
 
-.release-panel {
-  display: none;
-}
-
-.release-panel.panel-active {
-  display: block;
-}
-
 .release-audio {
   display: block;
   width: 100%;
   border-radius: 12px;
+}
+
+.release-panel {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.release-panel.panel-visible {
+  max-height: 500px;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .carousel-btn {
