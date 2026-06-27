@@ -1011,13 +1011,12 @@ h1, h2, h3, h4 {
 }
 
 .price-framing {
-  font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text-dim);
   letter-spacing: 0.02em;
   line-height: 1.5;
   margin-bottom: 12px;
-  font-style: italic;
+  font-style: normal;
 }
 
 /* ===== Contact Modal ===== */
