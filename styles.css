@@ -600,6 +600,12 @@ h1, h2, h3, h4 {
   color: var(--text);
 }
 
+@media (max-width: 768px) {
+  .about-text {
+    text-align: center;
+  }
+}
+
 /* ===== Red Band ===== */
 .red-band {
   background: var(--gold);
