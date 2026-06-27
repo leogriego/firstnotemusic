@@ -1240,11 +1240,8 @@ h1, h2, h3, h4 {
 
 .footer-logo {
   display: block;
-  height: 320px;
-  max-height: 80px;
+  height: 48px;
   width: auto;
-  overflow: hidden;
-  margin-bottom: -20px;
   filter: brightness(0) invert(1);
 }
 
