@@ -1213,7 +1213,8 @@ h1, h2, h3, h4 {
 
 /* ===== Footer ===== */
 .footer {
-  background: var(--olive);
+  background: #111111;
+  border-top: 4px solid #E55A45;
   padding: 40px 20px 40px;
   display: flex;
   flex-direction: column;
@@ -1253,7 +1254,7 @@ h1, h2, h3, h4 {
 
 .footer-brand span {
   font-size: 0.75rem;
-  color: rgba(247, 242, 232, 0.55);
+  color: #CCCCCC;
 }
 
 .footer-contact {
@@ -1271,7 +1272,7 @@ h1, h2, h3, h4 {
 }
 
 .footer-contact span {
-  color: rgba(247, 242, 232, 0.5);
+  color: #CCCCCC;
   font-size: 0.7rem;
 }
 
