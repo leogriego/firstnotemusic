@@ -1187,6 +1187,17 @@ h1, h2, h3, h4 {
   cursor: not-allowed;
 }
 
+.form-confirm {
+  padding: 32px 0 8px;
+  text-align: center;
+}
+
+.form-confirm p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
 /* ===== CTA ===== */
 .cta {
   padding: 120px 32px;

@@ -10,6 +10,18 @@ function openContactModal(e) {
 function closeContactModal() {
   contactModal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  const confirm = document.getElementById('form-confirm');
+  const form = document.getElementById('contact-form');
+  if (confirm && !confirm.hidden) {
+    confirm.hidden = true;
+    form.style.display = '';
+    contactModal.querySelector('.modal-sub').style.display = '';
+    contactModal.querySelector('#modal-title').style.display = '';
+    form.reset();
+    const submitBtn = document.getElementById('cf-submit');
+    submitBtn.textContent = 'Send Message';
+    submitBtn.disabled = false;
+  }
 }
 
 document.querySelectorAll('.open-contact-modal').forEach(btn => {
@@ -48,19 +60,10 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
     });
 
     if (response.ok) {
-      status.className = 'form-status success';
-      status.textContent = "Got it! I'll be in touch within 1-2 days. 🎧";
-      form.reset();
-      submitBtn.textContent = 'Sent ✓';
-      setTimeout(() => {
-        closeContactModal();
-        setTimeout(() => {
-          submitBtn.textContent = 'Send Message';
-          submitBtn.disabled = false;
-          status.className = 'form-status';
-          status.textContent = '';
-        }, 500);
-      }, 3000);
+      form.style.display = 'none';
+      contactModal.querySelector('.modal-sub').style.display = 'none';
+      contactModal.querySelector('#modal-title').style.display = 'none';
+      document.getElementById('form-confirm').hidden = false;
     } else {
       throw new Error('Submission failed');
     }
