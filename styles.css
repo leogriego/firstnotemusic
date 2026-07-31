@@ -850,18 +850,13 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 
-.pricing-cards {
-  max-width: 880px;
+.pricing-grid {
+  max-width: 1080px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   align-items: stretch;
-}
-
-.pricing-cards--single {
-  grid-template-columns: 1fr;
-  max-width: 480px;
 }
 
 .pricing-card {
@@ -873,6 +868,7 @@ h1, h2, h3, h4 {
   transition: border-color 0.3s;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .pricing-card:hover {
@@ -963,15 +959,6 @@ h1, h2, h3, h4 {
   font-weight: 400;
 }
 
-.pricing-secondary {
-  max-width: 1080px;
-  margin: 48px auto 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-  align-items: stretch;
-}
-
 .pricing-secondary-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -980,6 +967,7 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   transition: border-color 0.3s;
+  height: 100%;
 }
 
 .pricing-secondary-card:hover {
@@ -1018,26 +1006,6 @@ h1, h2, h3, h4 {
   margin-top: auto;
   padding: 14px 28px;
   font-size: 0.78rem;
-}
-
-.secondary-testimonial {
-  border-left: 2px solid var(--gold);
-  padding-left: 14px;
-  margin: 4px 0 20px;
-  font-size: 0.85rem;
-  font-style: italic;
-  color: var(--text-dim);
-  line-height: 1.6;
-}
-
-.secondary-testimonial cite {
-  display: block;
-  margin-top: 6px;
-  font-style: normal;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
 }
 
 .price-small {
@@ -1942,11 +1910,7 @@ h1, h2, h3, h4 {
     gap: 40px;
   }
 
-  .pricing-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .pricing-secondary {
+  .pricing-grid {
     grid-template-columns: 1fr;
   }
 
