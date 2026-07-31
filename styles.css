@@ -1020,6 +1020,26 @@ h1, h2, h3, h4 {
   font-size: 0.78rem;
 }
 
+.secondary-testimonial {
+  border-left: 2px solid var(--gold);
+  padding-left: 14px;
+  margin: 4px 0 20px;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.secondary-testimonial cite {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
 .price-small {
   font-size: 2rem;
   margin-bottom: 20px;
