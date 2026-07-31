@@ -472,6 +472,19 @@ h1, h2, h3, h4 {
   font-size: 1.05rem;
 }
 
+.program-note {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
+}
+
+.program-note a {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
 .timeline {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -589,6 +602,13 @@ h1, h2, h3, h4 {
   margin-bottom: 24px;
 }
 
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0 20px;
+}
+
 .about p {
   color: var(--text-dim);
   font-size: 1.05rem;
@@ -603,6 +623,10 @@ h1, h2, h3, h4 {
 @media (max-width: 768px) {
   .about-text {
     text-align: center;
+  }
+
+  .about-tags {
+    justify-content: center;
   }
 }
 
@@ -762,7 +786,7 @@ h1, h2, h3, h4 {
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 32px;
 }
 
@@ -863,21 +887,6 @@ h1, h2, h3, h4 {
   border-color: var(--gold);
 }
 
-.featured-badge {
-  position: absolute;
-  top: -12px;
-  right: 24px;
-  background: var(--gold);
-  color: #141414;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 100px;
-}
-
 .track-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -952,6 +961,68 @@ h1, h2, h3, h4 {
   color: var(--text-muted);
   text-align: center;
   font-weight: 400;
+}
+
+.pricing-secondary {
+  max-width: 1080px;
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.pricing-secondary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s;
+}
+
+.pricing-secondary-card:hover {
+  border-color: var(--text-muted);
+}
+
+.pricing-secondary-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 10px 0 12px;
+}
+
+.pricing-secondary-card ul {
+  flex: 1;
+  margin-bottom: 24px;
+}
+
+.pricing-secondary-card li {
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.pricing-secondary-card li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.pricing-secondary-card .btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+  padding: 14px 28px;
+  font-size: 0.78rem;
+}
+
+.price-small {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 /* ===== Details Bar ===== */
@@ -1229,6 +1300,17 @@ h1, h2, h3, h4 {
   display: none;
 }
 
+.form-privacy-note {
+  margin-top: 14px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.form-privacy-note a {
+  color: var(--gold);
+}
+
 .form-status.success {
   display: block;
   background: #e8f5e9;
@@ -1288,6 +1370,43 @@ h1, h2, h3, h4 {
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* ===== Legal pages ===== */
+.legal-page {
+  padding: 160px 32px 100px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.legal-inner h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin: 16px 0 8px;
+}
+
+.legal-updated {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin-bottom: 32px;
+}
+
+.legal-inner h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 32px 0 12px;
+}
+
+.legal-inner p {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.legal-inner a {
+  color: var(--gold);
 }
 
 /* ===== Footer ===== */
@@ -1369,6 +1488,12 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 6px;
   color: #1DB954 !important;
+}
+
+.footer-privacy {
+  color: var(--text-muted) !important;
+  font-size: 0.75rem;
+  text-decoration: underline;
 }
 
 .footer-spotify:hover {
@@ -1798,6 +1923,10 @@ h1, h2, h3, h4 {
   }
 
   .pricing-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-secondary {
     grid-template-columns: 1fr;
   }
 

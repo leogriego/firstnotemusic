@@ -28,9 +28,9 @@ document.querySelectorAll('.open-contact-modal').forEach(btn => {
   btn.addEventListener('click', openContactModal);
 });
 
-document.querySelector('.modal-close').addEventListener('click', closeContactModal);
+document.querySelector('.modal-close')?.addEventListener('click', closeContactModal);
 
-contactModal.addEventListener('click', (e) => {
+contactModal?.addEventListener('click', (e) => {
   if (e.target === contactModal) closeContactModal();
 });
 
@@ -38,7 +38,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeContactModal();
 });
 
-document.getElementById('contact-form').addEventListener('submit', async (e) => {
+document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;
   const submitBtn = document.getElementById('cf-submit');
