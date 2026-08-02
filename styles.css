@@ -476,8 +476,7 @@ h1, h2, h3, h4 {
   margin-top: 16px;
   font-size: 0.85rem;
   color: var(--text-muted);
-  font-family: var(--font-mono);
-  letter-spacing: 0.01em;
+  font-family: var(--font-body);
 }
 
 .program-note a {
@@ -863,7 +862,7 @@ h1, h2, h3, h4 {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 48px 40px;
+  padding: 48px 40px 40px;
   position: relative;
   transition: border-color 0.3s;
   display: flex;
@@ -963,7 +962,7 @@ h1, h2, h3, h4 {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 36px 32px;
+  padding: 36px 32px 40px;
   display: flex;
   flex-direction: column;
   transition: border-color 0.3s;
@@ -1004,8 +1003,9 @@ h1, h2, h3, h4 {
   width: 100%;
   justify-content: center;
   margin-top: auto;
-  padding: 14px 28px;
-  font-size: 0.78rem;
+  padding: 16px 32px;
+  font-size: 0.8rem;
+  border-width: 2px;
 }
 
 .price-small {
@@ -1745,6 +1745,30 @@ h1, h2, h3, h4 {
 
   .who-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Tablet: stop squeezing the hero photo into a narrow two-column
+     grid (that's what was causing the crop on iPad). Stack it above/
+     below the text instead, with a capped height and a top-anchored
+     crop so the face stays in frame. */
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding: 64px 48px 32px;
+  }
+
+  .hero-image {
+    padding: 0 48px 48px;
+    height: 60vh;
+    max-height: 480px;
+  }
+
+  .hero-image img {
+    height: 100%;
+    object-position: top center;
   }
 }
 
