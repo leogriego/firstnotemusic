@@ -1500,6 +1500,12 @@ h1, h2, h3, h4 {
   min-width: 100%;
 }
 
+.release-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
 .release-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1535,10 +1541,21 @@ h1, h2, h3, h4 {
   color: var(--text-muted);
 }
 
+/* "UNRELEASED" status tag on a release-song, for tracks with no streaming link yet */
+.release-feat--status {
+  color: var(--gold-dim);
+  font-weight: 700;
+}
+
 .release-story {
   color: var(--text-dim);
   font-size: 1rem;
   line-height: 1.7;
+  height: calc(1.7em * 6);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 
 .release-embed {
@@ -1562,6 +1579,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
+  margin-top: auto;
 }
 
 .release-toggle-btn {
@@ -1969,6 +1987,26 @@ h1, h2, h3, h4 {
 
   .release-artist {
     font-size: 1.5rem;
+  }
+
+  .release-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* single column now, so cards no longer need matched heights —
+     let the story run its full length instead of clamping to the
+     desktop line count (a narrower column wraps to more lines,
+     so the fixed clamp would cut text off mid-sentence) */
+  .release-story {
+    height: auto;
+    overflow: visible;
+    display: block;
+    -webkit-line-clamp: unset;
+  }
+
+  .release-toggle {
+    margin-top: 0;
   }
 
   .program, .pricing, .about, .showcase, .faq, .cta, .portfolio-section, .testimonials, .who {

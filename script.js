@@ -184,6 +184,20 @@ function initCarousel(wrapper) {
 
 document.querySelectorAll('.carousel-wrapper').forEach(initCarousel);
 
+// Stop any other card's audio/embed when one starts playing, so playback
+// never overlaps across cards (Student Releases grid + Productions carousel)
+document.addEventListener('play', (e) => {
+  if (e.target.tagName !== 'AUDIO') return;
+  document.querySelectorAll('audio').forEach(audio => {
+    if (audio !== e.target) { audio.pause(); }
+  });
+  document.querySelectorAll('.release-embed').forEach(iframe => {
+    const src = iframe.src;
+    iframe.src = '';
+    iframe.src = src;
+  });
+}, true); // capture: the media 'play' event doesn't bubble
+
 // Demo/Final toggles on release cards
 document.querySelectorAll('.release-toggle').forEach(toggle => {
   toggle.querySelectorAll('.release-toggle-btn').forEach(btn => {
@@ -201,6 +215,8 @@ document.querySelectorAll('.release-toggle').forEach(toggle => {
         spotifyPanel.classList.remove('panel-visible');
         const iframe = spotifyPanel.querySelector('iframe');
         if (iframe) iframe.src = iframe.src;
+        const finalAudio = spotifyPanel.querySelector('audio');
+        if (finalAudio) { finalAudio.pause(); finalAudio.currentTime = 0; }
       } else {
         spotifyPanel.classList.add('panel-visible');
         audioPanel.classList.remove('panel-visible');
